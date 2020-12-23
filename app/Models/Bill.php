@@ -2,21 +2,13 @@
 
 namespace App\Models;
 
-use App\Notifications\ManagerResetPassword;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Accountant extends Authenticatable
+class Bill extends Pivot
 {
-    use Notifiable, HasRoles;
-    protected $table = 'accountants';
+    protected $table = 'bills';
     protected $guarded = [];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 
     protected static function boot()
     {
@@ -25,7 +17,7 @@ class Accountant extends Authenticatable
             $builder->orderBy('ordered');
         });
 
-        if (!request()->is('manager/accountants') && !request()->is('manager/accountants/*')) {
+        if (!request()->is('manager/bills') && !request()->is('manager/bills/*')) {
             static::addGlobalScope('notDraft', function (Builder $builder) {
                 $builder->where('draft', false);
             });
@@ -33,17 +25,35 @@ class Accountant extends Authenticatable
 
     }
 
-
-    public function setLanguage()
+    public function client()
     {
-        $locale = $this->local ?? config("app.fallback_locale");
-        app()->setLocale($locale);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, BillItems::class, 'bill_id', 'item_id')->withPivot(
+            [
+                'item_id',
+                'bill_id',
+                'cost_before',
+                'cost_after',
+                'quantity',
+                'total_cost',
+            ])
+            ->using(BillItems::class)
+//            ->as('category_regions')//renaming the pivot table
+            ->withTimestamps();
+    }
+
+    public function getUuidAttribute($value)
+    {
+        return "#" . $value;
+    }
 
     public function getActionButtonsAttribute()
     {
-        $route = 'accountants';
+        $route = 'bills';
         $button = '';
         $button .= '<a href="' . route('manager.' . $route . '.edit', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-pencil"></i></a> ';
 //        $button .= '<a href="' . route('manager.' . $route . '.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';

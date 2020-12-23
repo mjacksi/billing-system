@@ -11,10 +11,13 @@ class ClientTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::query()->create([
-            'name' => 'client',
-            'email' => 'client@gmail.com',
-            'password' => bcrypt(123456),
-        ]);
+        for ($i = 1; $i <= 3; $i++){
+            \App\Models\User::query()->create([
+                'name' => 'client' . $i,
+                'email' => 'client'. $i .'@gmail.com',
+                'password' => bcrypt(123456),
+            ]);
+        }
+
     }
 }

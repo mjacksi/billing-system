@@ -1908,3 +1908,20 @@ if (!function_exists('route_site')) {
     }
 }
 
+
+if (!function_exists('getStatusNameAttribute')) {
+
+     function draftName($draft)
+    {
+        switch ($draft) {
+            case YES:
+                return t('Draft');
+            case NO:
+                return t('Not Draft');
+            default:
+                return t('unknown status');
+                break;
+        }
+    }
+}
+

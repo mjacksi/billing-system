@@ -16,8 +16,18 @@ Route::group(['namespace' => 'Manager'], function () {
 
 
 
-    //album Routes
+    //items Routes
     Route::resource('items', 'ItemController');
+
+
+    //accountants Routes
+    Route::resource('accountants', 'AccountantController');
+
+    //Users Routes
+    Route::resource('users', 'UserController');
+
+    //Bills Routes
+    Route::resource('bills', 'BillController');
 
 
 });

@@ -14,6 +14,9 @@ class PermissionTableSeeder extends Seeder
         $permissions = [
             'General Settings',
             'items',
+            'accountants',
+            'users',
+            'bills',
         ];
 
         foreach ($permissions as $permission) {

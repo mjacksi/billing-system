@@ -12,16 +12,14 @@ class Item extends Model
 
     public function getStatusNameAttribute()
     {
-        switch ($this->draft) {
-            case YES:
-                return t('Draft');
-            case NO:
-                return t('Not Draft');
-            default:
-                return t('unknown status');
-                break;
-        }
+        return draftName($this->draft);
     }
+
+    public function bills()
+    {
+        return $this->belongsToMany(BillItems::class, BillItems::class, 'item_id', 'bill_id');
+    }
+
 
     public function getActionButtonsAttribute()
     {
@@ -34,7 +32,6 @@ class Item extends Model
 
         return $button;
     }
-
 
 
 }

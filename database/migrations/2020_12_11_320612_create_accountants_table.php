@@ -13,6 +13,7 @@ class CreateAccountantsTable extends Migration
 
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
             $table->string('password');
 
             $table->enum('local', ['en','ar'])->default('ar');
@@ -24,6 +25,7 @@ class CreateAccountantsTable extends Migration
 
 
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

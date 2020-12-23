@@ -11,10 +11,12 @@ class AccountantsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Accountant::query()->create([
-            'name' => 'admin',
-            'email' => 'accountant@gmail.com',
-            'password' => bcrypt(123456),
-        ]);
+        for ($i = 1; $i <= 3; $i++) {
+            \App\Models\Accountant::query()->create([
+                'name' => 'accountant' . $i,
+                'email' => 'accountant'. $i .'@gmail.com',
+                'password' => bcrypt(123456),
+            ]);
+        }
     }
 }

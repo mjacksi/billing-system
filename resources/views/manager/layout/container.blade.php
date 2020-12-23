@@ -129,6 +129,37 @@
                                 </a>
                             </li>
                         @endcan
+
+                        @can('accountants')
+                            <li class="kt-menu__item  @if(Request::is('manager/accountants*') ) kt-menu__item--active @endif"
+                                aria-haspopup="true">
+                                <a href="{{route('manager.accountants.index')}}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-icon flaticon2-cube-1"></i>
+                                    <span class="kt-menu__link-text">{{ t('Accountants') }}</span>
+                                </a>
+                            </li>
+                        @endcan
+
+
+                        @can('users')
+                            <li class="kt-menu__item  @if(Request::is('manager/users*') ) kt-menu__item--active @endif"
+                                aria-haspopup="true">
+                                <a href="{{route('manager.users.index')}}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-icon flaticon2-cube-1"></i>
+                                    <span class="kt-menu__link-text">{{ t('Users') }}</span>
+                                </a>
+                            </li>
+                        @endcan
+
+                        @can('bills')
+                            <li class="kt-menu__item  @if(Request::is('manager/bills*') ) kt-menu__item--active @endif"
+                                aria-haspopup="true">
+                                <a href="{{route('manager.bills.index')}}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-icon flaticon2-cube-1"></i>
+                                    <span class="kt-menu__link-text">{{ t('Bills') }}</span>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </div>
             </div>

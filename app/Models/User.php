@@ -14,8 +14,6 @@ use Spatie\Translatable\HasTranslations;
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes, HasApiTokens;
-    use HasTranslations;
-    public $translatable = ['name'];
 
     public const DIR_IMAGE_UPLOADS = 'users';
 
@@ -223,11 +221,11 @@ class User extends Authenticatable
 
     public function getActionButtonsAttribute()
     {
-        $route = Request::is('manager/user') ? 'user' : 'driver';
+        $route = 'users';
 
         $button = '';
         $button .= '<a href="' . route('manager.'.$route.'.edit', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-pencil"></i></a> ';
-        $button .= '<a href="' . route('manager.'.$route.'.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';
+//        $button .= '<a href="' . route('manager.'.$route.'.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';
         $button .= '<button type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
 
         return $button;

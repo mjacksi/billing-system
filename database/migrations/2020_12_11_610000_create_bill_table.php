@@ -15,12 +15,9 @@ class CreateBillTable extends Migration
 
             $table->date('date')->nullable();
             $table->date('expire_date')->nullable();
-            $table->date('uuid')->nullable();
+            $table->string('uuid')->nullable();
             $table->string('note')->nullable();
-            $table->string('total_cost')->nullable();
-
-
-
+            $table->double('total_cost')->nullable();
 
             $table->tinyInteger('ordered')->default(1);
             $table->boolean('draft')->default(0);
