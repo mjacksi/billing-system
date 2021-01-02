@@ -90,7 +90,6 @@
                         </div>
                         <!--end::New Orders-->
                     </div>
-
                     <div class="col-md-12 col-lg-6 col-xl-3">
                         <!--begin::New Orders-->
                         <div class="kt-widget24">
@@ -129,7 +128,6 @@
                         </div>
                         <!--end::New Orders-->
                     </div>
-
                     <div class="col-md-12 col-lg-6 col-xl-3">
                         <!--begin::New Orders-->
                         <div class="kt-widget24">
@@ -145,6 +143,26 @@
 
                                 <span class="kt-widget24__stats kt-font-danger">
 {{$cds2}}</span>
+                            </div>
+                        </div>
+                        <!--end::New Orders-->
+                    </div>
+
+                    <div class="col-md-12 col-lg-6 col-xl-3">
+                        <!--begin::New Orders-->
+                        <div class="kt-widget24">
+                            <div class="kt-widget24__details">
+                                <div class="kt-widget24__info">
+                                    <h4 class="kt-widget24__title">
+                                         النفقات
+                                    </h4>
+                                    <span class="kt-widget24__desc">
+					             مجموع النفقات
+					        </span>
+                                </div>
+
+                                <span class="kt-widget24__stats kt-font-danger">
+{{$expense}}</span>
                             </div>
                         </div>
                         <!--end::New Orders-->

@@ -188,20 +188,33 @@ class BillController extends Controller
         $old_option = $request->get('old_option', []);
         if (is_array($old_option) && sizeof($old_option) > 0) {
             $total = 0;//this is the last total cost before we're edit this
+            $total_cost_before = 0;//this is the last total cost before we're edit this
+            $total_cost_after = 0;//this is the last total cost before we're edit this
             foreach ($old_option as $key => $item_price) {
+//                dd($item_price);
                 $quantity = isset($item_price['quantity']) ? $item_price['quantity'] : 1;
                 $total += (double)$item_price['cost_after'] * (double)$quantity;
+                $total_cost_before += (double)$item_price['cost_before'] * (double)$quantity;
+                $total_cost_after += (double)$item_price['cost_after'] * (double)$quantity;
             }
             $store->total_cost = $total;
         }
         if (is_array($item_prices) && sizeof($item_prices) > 0) {
             $total = $store->total_cost;//this is the last total cost before we're edit this
-            foreach ($item_prices as $key => $item_price) {
+            $total_cost_before = $store->total_cost_before;//this is the last total cost before we're edit this
+            $total_cost_after = $store->total_cost_after;//this is the last total cost before we're edit this
+               foreach ($item_prices as $key => $item_price) {
                 $quantity = isset($item_price['quantity']) ? $item_price['quantity'] : 1;
-                $total += (double)$item_price['cost_after'] * (double)$quantity;
+
+                   $total += (double)$item_price['cost_after'] * (double)$quantity;
+                   $total_cost_before += (double)$item_price['cost_before'] * (double)$quantity;
+                   $total_cost_after += (double)$item_price['cost_after'] * (double)$quantity;
+
             }
 //            dd($total);
             $store->total_cost = $total;
+            $store->total_cost_before = $total_cost_before;
+            $store->total_cost_after = $total_cost_after;
         }
         $store->save();
 
@@ -216,6 +229,7 @@ class BillController extends Controller
             $bill_item_store->cost_after = $item_price['cost_after'];
             $bill_item_store->quantity = isset($item_price['quantity']) ? $item_price['quantity'] : 1;
             $bill_item_store->total_cost = (double)$bill_item_store->cost_after * (double)$bill_item_store->quantity;
+//            total_cost_before
             $bill_item_store->save();
         }
 

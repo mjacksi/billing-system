@@ -7,6 +7,7 @@ use App\Models\Bill;
 use App\Models\Branch;
 use App\Models\CDs;
 use App\Models\Chat;
+use App\Models\Expense;
 use App\Models\Item;
 use App\Models\JoinUs;
 use App\Models\Merchant;
@@ -37,11 +38,12 @@ class SettingController extends Controller
 
     public function home()
     {
-        $total_items_cost_before = Item::sum('cost_before');
-        $total_items_cost_after = Bill::sum('total_cost');
+        $total_items_cost_before = Bill::sum('total_cost_before');
+        $total_items_cost_after = Bill::sum('total_cost_after');
         $total_items_cost_wins = $total_items_cost_after - $total_items_cost_before;//todo fix error
         $clients = User::count();
         $bills = Bill::count();
+        $expense = Expense::sum('cost');
         $cds1 = CDs::where('type',CDs::CREDITOR)->sum('amount');
         $cds2 = CDs::where('type',CDs::DEBTOR)->sum('amount');
 
@@ -53,7 +55,7 @@ class SettingController extends Controller
             ));
 
         return view('manager.home',compact('total_items_cost_before','total_items_cost_after','total_items_cost_wins',
-            'clients','bills','cds1','cds2','orders_date'));
+            'clients','bills','cds1','cds2','orders_date','expense'));
     }
 
     public function settings()

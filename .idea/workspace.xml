@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b44f9d90-bec0-4f3b-801b-556d1eb6cf6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Manager/AccountantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Manager/AccountantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Manager/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Manager/BillController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Manager/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Manager/SettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Manager/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Manager/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/migrations/2020_12_11_610000_create_bill_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../database/migrations/2020_12_11_610000_create_bill_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/lang/ar/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/lang/ar/manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/client/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/client/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/client/layout/container.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/client/layout/container.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +247,7 @@
       <workItem from="1609391561363" duration="3006000" />
       <workItem from="1609398247195" duration="800000" />
       <workItem from="1609562553746" duration="6971000" />
-      <workItem from="1609576515534" duration="679000" />
+      <workItem from="1609576515534" duration="3673000" />
     </task>
     <servers />
   </component>
@@ -280,10 +283,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1609395687324" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1609577172087">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1609582698650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1609577172087" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1609582698650" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

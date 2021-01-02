@@ -172,15 +172,15 @@
                             </li>
                         @endcan
 
-                        @can('cds')
-                            <li class="kt-menu__item  @if(Request::is('client/cds*') ) kt-menu__item--active @endif"
-                                aria-haspopup="true">
-                                <a href="{{route('client.cds.index')}}" class="kt-menu__link ">
-                                    <i class="kt-menu__link-icon la la-repeat"></i>
-                                    <span class="kt-menu__link-text">{{ t('Creditor Debtor') }}</span>
-                                </a>
-                            </li>
-                        @endcan
+{{--                        @can('cds')--}}
+{{--                            <li class="kt-menu__item  @if(Request::is('client/cds*') ) kt-menu__item--active @endif"--}}
+{{--                                aria-haspopup="true">--}}
+{{--                                <a href="{{route('client.cds.index')}}" class="kt-menu__link ">--}}
+{{--                                    <i class="kt-menu__link-icon la la-repeat"></i>--}}
+{{--                                    <span class="kt-menu__link-text">{{ t('Creditor Debtor') }}</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        @endcan--}}
 
                         @can('payments')
                             <li class="kt-menu__item  @if(Request::is('client/payments*') ) kt-menu__item--active @endif"

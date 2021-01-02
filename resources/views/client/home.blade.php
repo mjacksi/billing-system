@@ -33,24 +33,24 @@
                         </div>
                         <!--end::Total Profit-->
                     </div>
-                    <div class="col-md-12 col-lg-6 col-xl-3">
-                        <!--begin::New Feedbacks-->
-                        <div class="kt-widget24">
-                            <div class="kt-widget24__details">
-                                <div class="kt-widget24__info">
-                                    <h4 class="kt-widget24__title">
-                                        {{ t('Cds Required Amount') }}
-                                    </h4>
-                                    <span class="kt-widget24__desc">
-					            {{ t('Total Cds Required Amount') }}
-					        </span>
-                                </div>
+{{--                    <div class="col-md-12 col-lg-6 col-xl-3">--}}
+{{--                        <!--begin::New Feedbacks-->--}}
+{{--                        <div class="kt-widget24">--}}
+{{--                            <div class="kt-widget24__details">--}}
+{{--                                <div class="kt-widget24__info">--}}
+{{--                                    <h4 class="kt-widget24__title">--}}
+{{--                                        {{ t('Cds Required Amount') }}--}}
+{{--                                    </h4>--}}
+{{--                                    <span class="kt-widget24__desc">--}}
+{{--					            {{ t('Total Cds Required Amount') }}--}}
+{{--					        </span>--}}
+{{--                                </div>--}}
 
-                                <span class="kt-widget24__stats kt-font-danger">{{$cds_required_money}}</span>
-                            </div>
-                        </div>
-                        <!--end::New Feedbacks-->
-                    </div>
+{{--                                <span class="kt-widget24__stats kt-font-danger">{{$cds_required_money}}</span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!--end::New Feedbacks-->--}}
+{{--                    </div>--}}
                     <div class="col-md-12 col-lg-6 col-xl-3">
                         <!--begin::New Orders-->
                         <div class="kt-widget24">
