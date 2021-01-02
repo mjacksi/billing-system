@@ -39,7 +39,7 @@ class SettingController extends Controller
     {
         $total_items_cost_before = Item::sum('cost_before');
         $total_items_cost_after = Bill::sum('total_cost');
-        $total_items_cost_wins = $total_items_cost_after - $total_items_cost_before;
+        $total_items_cost_wins = $total_items_cost_after - $total_items_cost_before;//todo fix error
         $clients = User::count();
         $bills = Bill::count();
         $cds1 = CDs::where('type',CDs::CREDITOR)->sum('amount');
@@ -52,7 +52,8 @@ class SettingController extends Controller
                 DB::raw('COUNT(*) as counts')
             ));
 
-        return view('manager.home',compact('total_items_cost_before','total_items_cost_after','total_items_cost_wins','clients','bills','cds1','cds2','orders_date'));
+        return view('manager.home',compact('total_items_cost_before','total_items_cost_after','total_items_cost_wins',
+            'clients','bills','cds1','cds2','orders_date'));
     }
 
     public function settings()

@@ -95,6 +95,25 @@ class AccountantController extends Controller
         }
         $store->draft = $request->get('draft', 0);
         $store->save();
+        $permissions = [
+            'General Settings',
+            'items',
+            'recipients',
+            'accountants',
+            'users',
+            'bills',
+            'expenses',
+            'cds',//creditor_debtor
+            'cds2',//creditor_debtor
+            'payments',
+        ];
+        if (!isset($request->accountants_id)) {
+            foreach ($permissions as $permission) {
+//                \Spatie\Permission\Models\Permission::create(['name' => $permission, 'guard_name' => 'accountant']);
+                $store->givePermissionTo($permission);
+            }
+        }
+
 
         if (isset($request->accountants_id)) {
             return redirect()->route('manager.accountants.index')->with('m-class', 'success')->with('message', t('Successfully Updated'));

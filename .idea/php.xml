@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ChangeListManager">
-    <list default="true" id="b44f9d90-bec0-4f3b-801b-556d1eb6cf6b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Manager/AccountantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Manager/AccountantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Manager/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Manager/SettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/Manager/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/Manager/UserController.php" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\laragon\www\billing-system\.idea" />
-      </set>
-    </option>
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-activitylog" />
@@ -175,125 +147,10 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1m5ft5RIPNbKlAqkiRmHt8aCIKr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../resources/views/manager" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\billing-system\resources\views\manager" />
-      <recent name="C:\laragon\www\billing-system\app\Models" />
-      <recent name="C:\laragon\www\billing-system\database\migrations" />
-      <recent name="C:\laragon\www\billing-system\app\Http\Controllers\Manager" />
-      <recent name="C:\laragon\www\billing-system\app\Http\Middleware" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
-      <method v="2" />
-    </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="b44f9d90-bec0-4f3b-801b-556d1eb6cf6b" name="Default Changelist" comment="" />
-      <created>1608788583833</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1608788583833</updated>
-      <workItem from="1608788590106" duration="4008000" />
-      <workItem from="1608896111847" duration="663000" />
-      <workItem from="1608981031822" duration="14541000" />
-      <workItem from="1609083897091" duration="20150000" />
-      <workItem from="1609167668900" duration="6265000" />
-      <workItem from="1609234380586" duration="1221000" />
-      <workItem from="1609266970717" duration="7954000" />
-      <workItem from="1609304773144" duration="5875000" />
-      <workItem from="1609327508810" duration="611000" />
-      <workItem from="1609391561363" duration="3006000" />
-      <workItem from="1609398247195" duration="800000" />
-      <workItem from="1609562553746" duration="6971000" />
-      <workItem from="1609576515534" duration="679000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609566488941">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1609566488941" />
-    <state x="186" y="0" key="SettingsEditor" timestamp="1609266984267">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="186" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1609266984267" />
-    <state width="593" height="446" key="SwitcherDM" timestamp="1609096484746">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="593" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1609096484746" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1609562607535">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1609562607535" />
-    <state x="338" y="14" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608789163715">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="338" y="14" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1608789163715" />
-    <state x="379" y="96" width="737" height="606" key="find.popup" timestamp="1609566799218">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="379" y="96" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1609566799218" />
-    <state x="339" y="157" key="run.anything.popup" timestamp="1609395687324">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1609395687324" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1609577172087">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1609577172087" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/../resources/views/accountant/bills/index.blade.php</url>
-          <line>98</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/../phpunit.xml" custom_loader_path="$PROJECT_DIR$/../vendor/autoload.php" use_configuration_file="true" />
+    </phpunit_settings>
   </component>
 </project>

@@ -108,6 +108,19 @@ class UserController extends Controller
         $store->draft = $request->get('draft', 0);
         $store->save();
 
+        $permissions_client = [
+            'General Settings',
+            'bills',
+//            'cds',//creditor_debtor
+            'payments',
+        ];
+        if (!isset($request->user_id)) {
+            foreach ($permissions_client as $permission) {
+//                \Spatie\Permission\Models\Permission::create(['name' => $permission, 'guard_name' => 'accountant']);
+                $store->givePermissionTo($permission);
+            }
+        }
+
         if (isset($request->user_id)) {
             return redirect()->route('manager.users.index')->with('m-class', 'success')->with('message', t('Successfully Updated'));
         } else {
