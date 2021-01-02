@@ -40,10 +40,10 @@ class SettingController extends Controller
     {
         $total_items_cost_before = Bill::sum('total_cost_before');
         $total_items_cost_after = Bill::sum('total_cost_after');
-        $total_items_cost_wins = $total_items_cost_after - $total_items_cost_before;//todo fix error
+        $expense = Expense::sum('cost');
+        $total_items_cost_wins = $total_items_cost_after - $total_items_cost_before - $expense;//todo fix error
         $clients = User::count();
         $bills = Bill::count();
-        $expense = Expense::sum('cost');
         $cds1 = CDs::where('type',CDs::CREDITOR)->sum('amount');
         $cds2 = CDs::where('type',CDs::DEBTOR)->sum('amount');
 
