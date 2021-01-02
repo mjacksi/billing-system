@@ -91,7 +91,7 @@
              id="kt_aside_mobile_toggler">
             <span></span>
         </div>
-{{--        <div class="kt-header-mobile__toolbar-toggler" id="kt_header_mobile_toggler"><span></span></div>--}}
+        <div class="kt-header-mobile__toolbar-toggler" id="kt_header_mobile_toggler"><span></span></div>
         <div class="kt-header-mobile__toolbar-topbar-toggler" id="kt_header_mobile_topbar_toggler"><i
                 class="flaticon-more"></i></div>
     </div>
