@@ -31,15 +31,17 @@ class AppServiceProvider extends ServiceProvider
     {
 
 
-        if (Schema::hasTable('settings')) {
+        Schema::defaultStringLength(191);
 
-            App::singleton('settings', function () {
-                return Setting::getSettings();
-            });
-
-
-            View::share('settings', app('settings'));
-        }
+//        if (Schema::hasTable('settings')) {
+//
+//            App::singleton('settings', function () {
+//                return Setting::getSettings();
+//            });
+//
+//
+//            View::share('settings', app('settings'));
+//        }
 
 //        view()->share('notifications',\App\Models\ContactUs::where('seen',0)->latest()->get());
     }

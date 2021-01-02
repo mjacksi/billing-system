@@ -12,6 +12,7 @@ class CreateBillTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('accountant_id')->nullable();
 
             $table->date('date')->nullable();
             $table->date('expire_date')->nullable();
@@ -21,11 +22,12 @@ class CreateBillTable extends Migration
 
             $table->tinyInteger('ordered')->default(1);
             $table->boolean('draft')->default(0);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('accountant_id')->references('id')->on('accountants')->onDelete('cascade');
 
 
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

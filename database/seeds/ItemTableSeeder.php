@@ -15,8 +15,8 @@ class ItemTableSeeder extends Seeder
             \App\Models\Item::create([
                 'name' => 'item' . $i,
                 'unit' => 'unit' . $i,
-                'cost_before' =>  $i + 100,
-                'cost_after' =>  $i + 1000,
+                'cost_before' =>  $i + 1,
+                'cost_after' =>  $i + 10,
                 'number' =>  $i + 5,
                 'hasNumber' =>  true,
             ]);

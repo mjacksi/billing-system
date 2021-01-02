@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Manager'], function () {
@@ -13,9 +14,6 @@ Route::group(['namespace' => 'Manager'], function () {
     Route::post('profile', 'SettingController@profile')->name('profile.update');
 
 
-
-
-
     //items Routes
     Route::resource('items', 'ItemController');
 
@@ -28,6 +26,25 @@ Route::group(['namespace' => 'Manager'], function () {
 
     //Bills Routes
     Route::resource('bills', 'BillController');
+    Route::post('bill-add-payment/{id}', 'BillController@addPayment')->name('bill.addPayment');
+
+    //Expenses Routes
+    Route::resource('expenses', 'ExpenseController');
+
+    //creditor_debtor Routes
+    Route::resource('cds', 'CreditorDebtorController');
+    Route::post('cds/{id}', 'CreditorDebtorController@addPayment')->name('cds.addPayment');
+
+    //cds2 Routes ديون المطلوبة من الناس
+    Route::resource('cds2', 'CreditorDebtor2Controller');
+    Route::post('cds2/{id}', 'CreditorDebtor2Controller@addPayment')->name('cds2.addPayment');
+
+
+    //Payments Routes
+    Route::resource('payments', 'PaymentController');
+
+    //recipients Routes
+    Route::resource('recipients', 'RecipientsController');
 
 
 });

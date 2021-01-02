@@ -46,6 +46,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapManagerRoutes();
+        $this->mapAccountantRoutes();
+        $this->mapClientRoutes();
     }
 
     /**
@@ -64,6 +66,32 @@ class RouteServiceProvider extends ServiceProvider
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/manager.php');
+        });
+    }
+
+
+    protected function mapAccountantRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'accountant', 'auth:accountant'],
+            'prefix' => 'accountant',
+            'as' => 'accountant.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/accountant.php');
+        });
+    }
+
+
+    protected function mapClientRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'client', 'auth:client'],
+            'prefix' => 'client',
+            'as' => 'client.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/client.php');
         });
     }
 

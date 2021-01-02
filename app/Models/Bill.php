@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Model;
 
-class Bill extends Pivot
+
+class Bill extends Model
 {
     protected $table = 'bills';
     protected $guarded = [];
@@ -25,13 +27,17 @@ class Bill extends Pivot
 
     }
 
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, 'bill_id', 'id');
+    }
     public function client()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-
     public function items()
     {
+        return $this->hasMany(BillItems::class, 'bill_id', 'id');
         return $this->belongsToMany(Item::class, BillItems::class, 'bill_id', 'item_id')->withPivot(
             [
                 'item_id',
@@ -46,18 +52,72 @@ class Bill extends Pivot
             ->withTimestamps();
     }
 
+    public function files()
+    {
+        return $this->hasMany(BillFiles::class, 'bill_id', 'id');
+    }
+
+    //    attributes
+    public function getPaidAmountAttribute()
+    {
+        return Payment::query()->bill()->where('bill_id', $this->id)->sum('amount');
+    }
+
     public function getUuidAttribute($value)
     {
         return "#" . $value;
+    }
+
+    public function getStatusNameAttribute()
+    {
+
+        if ($this->paid_amount == $this->total_cost) {
+            return t('Paid');
+        } elseif ($this->paid_amount == 0) {
+            return t('Not Paid');
+        } elseif ($this->paid_amount < $this->total_cost) {
+            return t('Partially');
+        } else {
+            return t('Not Paid');
+
+        }
+    }
+
+    public function getIsPaidAttribute()
+    {
+        return $this->paid_amount == $this->total_cost ? true : false;
+    }
+
+    public function getTotalPaymentsAttribute()
+    {
+        return Payment::query()->bill()->where('bill_id', $this->id)->sum('amount');
+
     }
 
     public function getActionButtonsAttribute()
     {
         $route = 'bills';
         $button = '';
-        $button .= '<a href="' . route('manager.' . $route . '.edit', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-pencil"></i></a> ';
-//        $button .= '<a href="' . route('manager.' . $route . '.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';
-        $button .= '<button type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
+        if (auth()->guard('manager')->check()) {
+            $button .= '<a href="' . route('manager.' . $route . '.edit', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-pencil"></i></a> ';
+            $button .= '<a href="' . route('manager.' . $route . '.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';
+            $button .= '<button type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#addPaymentModel"
+ class="addPaymentRecord btn btn-icon btn-danger mr-1"><i class="la la-dollar "></i></button>';
+            $button .= '<button type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
+
+        } else if (auth()->guard('accountant')->check()) {
+//            $button .= '<a  href="' . route('manager.' . $route . '.edit', $this->id) . '" class="btn btn-icon btn-danger disabled "><i class="la la-pencil"></i></a> ';
+            $button .= '<a href="' . route('accountant.' . $route . '.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';
+            $button .= '<button type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#addPaymentModel"
+ class="addPaymentRecord btn btn-icon btn-danger mr-1"><i class="la la-dollar "></i></button>';
+//            $button .= '<button disabled type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
+
+        } else {
+//            $button .= '<a  href="' . route('manager.' . $route . '.edit', $this->id) . '" class="btn btn-icon btn-danger disabled "><i class="la la-pencil"></i></a> ';
+            $button .= '<a href="' . route('client.' . $route . '.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';
+//            $button .= '<button disabled type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
+
+        }
 
         return $button;
     }

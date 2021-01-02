@@ -67,18 +67,33 @@
                                                   class="form-control">{{ isset($bill) ? $bill->note : old("note") }}</textarea>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label class="col-3 col-form-label font-weight-bold">{{t('Draft')}}</label>
-                                    <div class="col-3">
-                                        <span class="kt-switch">
-                                            <label>
-                                            <input type="checkbox" value="1"
-                                                   {{ isset($bill) && $bill->draft == 1 ? 'checked' :'' }} name="draft">
-                                            <span></span>
-                                            </label>
-                                        </span>
+                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ t('Bill Files') }} </label>
+                                    <div class="col-lg-9 col-xl-6">
+                                        <input type="file" name="bill_files[]" multiple class="form-control">
+                                       @if(isset($bill) && count($bill->files) > 0)
+
+                                            @foreach($bill->files as $key=>$file)
+                                                <a target="_blank" href="{{$file->file}}">{{t('Brows')}}</a>
+                                                <br>
+                                            @endforeach
+                                           @endif
                                     </div>
+
                                 </div>
+{{--                                <div class="form-group row">--}}
+{{--                                    <label class="col-3 col-form-label font-weight-bold">{{t('Draft')}}</label>--}}
+{{--                                    <div class="col-3">--}}
+{{--                                        <span class="kt-switch">--}}
+{{--                                            <label>--}}
+{{--                                            <input type="checkbox" value="1"--}}
+{{--                                                   {{ isset($bill) && $bill->draft == 1 ? 'checked' :'' }} name="draft">--}}
+{{--                                            <span></span>--}}
+{{--                                            </label>--}}
+{{--                                        </span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                                 <hr>
 
@@ -107,7 +122,7 @@
                                                             <option value=''>{{t('Select Item')}}</option>
                                                             @foreach($items as $key2=>$item2)
                                                                 <option value="{{$item2->id}}"
-                                                                        {{$item2->is($item)? 'selected' : ''}}
+                                                                        {{$item2->is($item->item)? 'selected' : ''}}
                                                                         data-cost-before='{{$item2->cost_before}}'
                                                                         data-cost-after='{{$item2->cost_after}}'>  {{$item2->name}}</option>
 
@@ -121,7 +136,7 @@
                                                         <label>{{ t('Cost Before') }}</label>
                                                         <input name="old_option[{{$item->id}}][cost_before]"
                                                                type="number" step="0.9" class="form-control"
-                                                               value="{{$item->cost_before}}">
+                                                               value="{{$item/*->pivot*/->cost_before}}">
                                                     </div>
                                                 </div>
 
@@ -130,21 +145,16 @@
                                                         <label>{{ t('Cost After') }}</label>
                                                         <input name="old_option[{{$item->id}}][cost_after]"
                                                                type="number" step="0.9" class="form-control"
-                                                               value="{{$item->cost_after}}">
+                                                               value="{{$item/*->pivot*/->cost_after}}">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-1">
+
+                                                <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>{{ t('Draft') }} </label>
-                                                        <div class="w-100">
-                                                                    <span class="kt-switch">
-                                                                        <label>
-                                                                        <input type="checkbox" value="1"
-                                                                               name="old_option[{{$item->id}}][draft]" {{$item->draft ? 'checked':''}}>
-                                                                        <span></span>
-                                                                        </label>
-                                                                    </span>
-                                                        </div>
+                                                        <label>{{ t('Quantity') }}</label>
+                                                        <input name="old_option[{{$item->id}}][quantity]"
+                                                               type="number" step="1" class="form-control"
+                                                               value="{{$item/*->pivot*/->quantity}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
@@ -246,7 +256,7 @@
                     "<div class=\"form-group\">" +
                     "<label>{{ t('Quantity') }}</label>" +
                     "<input name=\"options[" + x + "][quantity]\"\n" +
-                    "                   type=\"number\" step=\"0.9\" class=\"form-control\"\n" +
+                    "                   type=\"number\" step=\"1.0\" class=\"form-control\"\n" +
                     "                   value=\"\">\n" +
                     "</div>" +
                     "</div>" +

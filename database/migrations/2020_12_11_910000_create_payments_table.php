@@ -13,12 +13,16 @@ class CreatePaymentsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('accountant_id')->nullable();
+            $table->unsignedBigInteger('manager_id')->nullable();
+
+
             $table->integer('type'); //فاتورة ام سداد دين
 
             $table->unsignedBigInteger('creditor_debtor_id')->nullable();
             $table->unsignedBigInteger('bill_id')->nullable();
-            $table->unsignedBigInteger('amount')->nullable();//كم دفع
-
+            $table->double('amount')->default(0);//كم دفع
+            $table->string('note')->nullable();
 
             $table->tinyInteger('ordered')->default(1);
             $table->boolean('draft')->default(0);
@@ -29,6 +33,9 @@ class CreatePaymentsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('creditor_debtor_id')->references('id')->on('creditor_debtor')->onDelete('cascade');
             $table->foreign('bill_id')->references('id')->on('bills')->onDelete('cascade');
+            $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
+
+
         });
     }
 

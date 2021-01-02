@@ -25,6 +25,19 @@ Route::group(['prefix' => 'manager'], function () {
 });
 
 
+Route::group(['prefix' => 'accountant'], function () {
+    Route::get('/login', 'Accountant\AccountantAuth\LoginController@showLoginForm')->name('accountant.login');
+    Route::post('/login', 'Accountant\AccountantAuth\LoginController@login');
+    Route::post('/logout', 'Accountant\AccountantAuth\LoginController@logout')->name('logout');
+});
+
+Route::group(['prefix' => 'client'], function () {
+    Route::get('/login', 'Client\ClientAuth\LoginController@showLoginForm')->name('client.login');
+    Route::post('/login', 'Client\ClientAuth\LoginController@login');
+    Route::post('/logout', 'Client\ClientAuth\LoginController@logout')->name('logout');
+});
+
+
 Route::get('migrate', function () {
     Artisan::call('migrate');
 });

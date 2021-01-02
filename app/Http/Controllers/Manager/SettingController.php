@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bill;
 use App\Models\Branch;
+use App\Models\CDs;
 use App\Models\Chat;
 use App\Models\Item;
 use App\Models\JoinUs;
@@ -35,7 +37,22 @@ class SettingController extends Controller
 
     public function home()
     {
-        return view('manager.home');
+        $total_items_cost_before = Item::sum('cost_before');
+        $total_items_cost_after = Bill::sum('total_cost');
+        $total_items_cost_wins = $total_items_cost_after - $total_items_cost_before;
+        $clients = User::count();
+        $bills = Bill::count();
+        $cds1 = CDs::where('type',CDs::CREDITOR)->sum('amount');
+        $cds2 = CDs::where('type',CDs::DEBTOR)->sum('amount');
+
+        $orders_date = Bill::query()->groupBy('expire_date')
+            ->orderBy('expire_date', 'DESC')->whereMonth('created_at', now())
+            ->get(array(
+                DB::raw('Date(created_at) as date'),
+                DB::raw('COUNT(*) as counts')
+            ));
+
+        return view('manager.home',compact('total_items_cost_before','total_items_cost_after','total_items_cost_wins','clients','bills','cds1','cds2','orders_date'));
     }
 
     public function settings()

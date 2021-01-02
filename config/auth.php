@@ -41,14 +41,19 @@ return [
             'provider' => 'managers',
         ],
 
+
+        'accountant' => [
+            'driver' => 'session',
+            'provider' => 'accountants',
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
-
-        'provider' => [
-            'driver' => 'session',
-            'provider' => 'providers',
         ],
 
         'api' => [
@@ -81,9 +86,15 @@ return [
         ],
 
 
-        'providers' => [
+        'accountants' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Provider::class,
+            'model' => App\Models\Accountant::class,
+        ],
+
+
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
         ],
 
         'users' => [

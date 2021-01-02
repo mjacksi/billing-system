@@ -8,14 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Request;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Spatie\Translatable\HasTranslations;
 
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, HasApiTokens;
-
-    public const DIR_IMAGE_UPLOADS = 'users';
+    use Notifiable, SoftDeletes, HasRoles;
 
     protected $guarded = [];
 
@@ -222,11 +221,16 @@ class User extends Authenticatable
     public function getActionButtonsAttribute()
     {
         $route = 'users';
+            $button = '';
+        if (auth()->guard('manager')->check()){
+            $button .= '<a href="' . route('manager.'.$route.'.edit', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-pencil"></i></a> ';
+            $button .= '<button type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
 
-        $button = '';
-        $button .= '<a href="' . route('manager.'.$route.'.edit', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-pencil"></i></a> ';
-//        $button .= '<a href="' . route('manager.'.$route.'.show', $this->id) . '" class="btn btn-icon btn-danger "><i class="la la-eye"></i></a> ';
-        $button .= '<button type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
+        }else if (auth()->guard('accountant')->check()){
+//            $button .= '<a href="' . route('manager.'.$route.'.edit', $this->id) . '" class="btn btn-icon btn-danger disabled "><i class="la la-pencil"></i></a> ';
+//            $button .= '<button disabled type="button" data-id="' . $this->id . '" data-toggle="modal" data-target="#deleteModel" class="deleteRecord btn btn-icon btn-danger"><i class="la la-trash"></i></button>';
+        }else{
+        }
 
         return $button;
     }

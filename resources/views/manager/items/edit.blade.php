@@ -88,17 +88,17 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-3 col-form-label font-weight-bold">{{t('Draft')}}</label>
-                                    <div class="col-3">
-                                        <span class="kt-switch">
-                                            <label>
-                                            <input type="checkbox" value="1"  {{ isset($items) && $items->draft == 1 ? 'checked' :'' }} name="draft">
-                                            <span></span>
-                                            </label>
-                                        </span>
-                                    </div>
-                                </div>
+{{--                                <div class="form-group row">--}}
+{{--                                    <label class="col-3 col-form-label font-weight-bold">{{t('Draft')}}</label>--}}
+{{--                                    <div class="col-3">--}}
+{{--                                        <span class="kt-switch">--}}
+{{--                                            <label>--}}
+{{--                                            <input type="checkbox" value="1"  {{ isset($items) && $items->draft == 1 ? 'checked' :'' }} name="draft">--}}
+{{--                                            <span></span>--}}
+{{--                                            </label>--}}
+{{--                                        </span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                             </div>
                         </div>

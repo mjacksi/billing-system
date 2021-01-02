@@ -11,7 +11,7 @@ class CreateAccountantsTable extends Migration
         Schema::create('accountants', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('password');

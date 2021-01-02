@@ -37,14 +37,23 @@
                                 <label>{{ t('Title') }}:</label>
                                 <input type="text" name="title" id="title" class="form-control kt-input" placeholder="{{t('Title')}}">
                             </div>
+
                             <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
-                                <label>{{ t('Status') }}:</label>
-                                <select class="form-control" name="draft" id="draft">
-                                    <option selected value="">{{t('Select Status')}}</option>
-                                    <option value="{{YES}}" >{{t('Draft')}}</option>
-                                    <option value="{{NO}}" >{{t('Not Draft')}}</option>
-                                </select>
+                                <label for="from">{{ t('From') }}:</label>
+                                <input type="date" name="from" id="from" class="form-control kt-input" placeholder="{{t('Form')}}">
                             </div>
+                            <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
+                                <label for="to">{{ t('To') }}:</label>
+                                <input type="date" name="to" id="to" class="form-control kt-input" placeholder="{{t('To')}}">
+                            </div>
+{{--                            <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">--}}
+{{--                                <label>{{ t('Status') }}:</label>--}}
+{{--                                <select class="form-control" name="draft" id="draft">--}}
+{{--                                    <option selected value="">{{t('Select Status')}}</option>--}}
+{{--                                    <option value="{{YES}}" >{{t('Draft')}}</option>--}}
+{{--                                    <option value="{{NO}}" >{{t('Not Draft')}}</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                             <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
                                 <label>{{ t('Action') }}:</label>
@@ -62,8 +71,12 @@
                         <th>{{t('Expire Date')}}</th>
                         <th>{{t('uuid')}}</th>
                         <th>{{t('Client')}}</th>
-                        <th>{{t('Status')}}</th>
+{{--                        <th>{{t('Status')}}</th>--}}
                         <th>{{t('total_cost')}}</th>
+                        <th>{{t('paid_amount')}}</th>
+                        <th>{{t('Remaining Amount')}}</th>
+                        <th>{{t('Status')}}</th>
+
                         <th>{{t('Actions')}}</th>
                         </thead>
                     </table>
@@ -94,11 +107,48 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="addPaymentModel" tabindex="-1" role="dialog" aria-labelledby="addPaymentModel"
+         aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{w('Add Payment')}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <form method="post" action="" id="add_payment">
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                        <input class="form-control" type="number" name="amount" id="amount">
+                        <br>
+                        <br>
+                        <textarea name="note" id="note" cols="30" rows="10" class="form-control" placeholder="notes"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{w('Cancel')}}</button>
+                        <button type="submit" class="btn btn-warning">{{w('Add')}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('script')
     <!-- DataTables -->
+
+    <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="{{ asset('assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
+
+
+
     <!-- Bootstrap JavaScript -->
     <script>
         $(document).ready(function(){
@@ -108,12 +158,27 @@
                 url = url.replace(':id', id );
                 $('#delete_form').attr('action',url);
             }));
+            $(document).on('click', '.addPaymentRecord', (function () {
+                var id = $(this).data("id");
+                console.log(id)
+                var url = '{{ route("manager.bill.addPayment", ":id") }}';
+                url = url.replace(':id', id);
+                $('#add_payment').attr('action', url);
+            }));
             $(function() {
                 $('#Bills-table').DataTable({
                     processing: true,
                     serverSide: true,
                     ordering:false,
                     searching: false,
+
+                    dom: 'lBfrtip',
+                    buttons: [
+                        'excel', 'print'
+                    ],
+
+
+
                     @if(app()->getLocale() == 'ar')
                     language: {
                         url: "http://cdn.datatables.net/plug-ins/1.10.21/i18n/Arabic.json"
@@ -123,6 +188,8 @@
                         url : '{{ route('manager.bills.index') }}',
                         data: function (d) {
                             d.title = $("#title").val();
+                            d.from = $("#from").val();
+                            d.to = $("#to").val();
                             d.draft = $("#draft").val();
                         }
                     },
@@ -130,8 +197,10 @@
                         {data: 'expire_date', name: 'expire_date'},
                         {data: 'uuid', name: 'uuid'},
                         {data: 'client', name: 'client'},
-                        {data: 'status_name', name: 'status_name'},
                         {data: 'total_cost', name: 'total_cost'},
+                        {data: 'paid_amount', name: 'paid_amount'},
+                        {data: 'remaining_amount', name: 'remaining_amount'},
+                        {data: 'status_name', name: 'status_name'},
                         {data: 'actions', name: 'actions'}
                     ],
                 });
@@ -141,4 +210,9 @@
             });
         });
     </script>
+
+    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+
+    {!! $validator->selector('#add_payment') !!}
+
 @endsection

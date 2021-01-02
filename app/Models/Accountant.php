@@ -34,12 +34,26 @@ class Accountant extends Authenticatable
     }
 
 
+    public function recipients()
+    {
+        return $this->hasMany(Recipients::class,'accountant_id','id');
+    }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class,'accountant_id','id');
+    }
     public function setLanguage()
     {
         $locale = $this->local ?? config("app.fallback_locale");
         app()->setLocale($locale);
     }
 
+    public function getTotalRecipientsAttribute()
+    {
+        $total_payments = $this->payments()->sum('amount');
+        $total_recipients = Recipients::where('accountant_id',$this->id)->sum('amount');
+        return abs($total_payments - $total_recipients);
+}
 
     public function getActionButtonsAttribute()
     {

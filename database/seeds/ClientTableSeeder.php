@@ -15,6 +15,7 @@ class ClientTableSeeder extends Seeder
             \App\Models\User::query()->create([
                 'name' => 'client' . $i,
                 'email' => 'client'. $i .'@gmail.com',
+                'phone' => getRandomPhoneNumber_9_digit(),
                 'password' => bcrypt(123456),
             ]);
         }

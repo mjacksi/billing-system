@@ -37,14 +37,14 @@
                                 <label>{{ t('Title') }}:</label>
                                 <input type="text" name="title" id="title" class="form-control kt-input" placeholder="{{t('Title')}}">
                             </div>
-                            <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
-                                <label>{{ t('Status') }}:</label>
-                                <select class="form-control" name="draft" id="draft">
-                                    <option selected value="">{{t('Select Status')}}</option>
-                                    <option value="{{YES}}" >{{t('Draft')}}</option>
-                                    <option value="{{NO}}" >{{t('Not Draft')}}</option>
-                                </select>
-                            </div>
+{{--                            <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">--}}
+{{--                                <label>{{ t('Status') }}:</label>--}}
+{{--                                <select class="form-control" name="draft" id="draft">--}}
+{{--                                    <option selected value="">{{t('Select Status')}}</option>--}}
+{{--                                    <option value="{{YES}}" >{{t('Draft')}}</option>--}}
+{{--                                    <option value="{{NO}}" >{{t('Not Draft')}}</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                             <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
                                 <label>{{ t('Action') }}:</label>
@@ -60,7 +60,10 @@
                     <table class="table text-center" id="users-table">
                         <thead>
                         <th>{{t('Name')}}</th>
-                        <th>{{t('Status')}}</th>
+                        <th>{{t('Email')}}</th>
+                        <th>{{t('Phone')}}</th>
+                        <th>{{t('Required Money')}}</th>
+{{--                        <th>{{t('Status')}}</th>--}}
                         <th>{{t('Actions')}}</th>
                         </thead>
                     </table>
@@ -125,7 +128,10 @@
                     },
                     columns: [
                         {data: 'name', name: 'name'},
-                        {data: 'status_name', name: 'status_name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'phone', name: 'phone'},
+                        {data: 'total', name: 'total'},
+                        // {data: 'status_name', name: 'status_name'},
                         {data: 'actions', name: 'actions'}
                     ],
                 });

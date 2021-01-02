@@ -26,6 +26,10 @@ class BillItems extends Pivot
 
     }
 
+    public function item()
+    {
+        return $this->belongsTo(Item::class, 'item_id', 'id');
+    }
 
 
 }

@@ -116,8 +116,12 @@
                                                 العربية
                                             </a>
                             @else
-                                <a href="{{ route('switch-language', 'en') }}" class="kt-link kt-font-danger">
-                                            English
+                                <a href="{{ route('accountant.login') }}" class="kt-link kt-font-danger">
+                                            المحاسب
+                                  </a>
+                               <span class="kt-login__account-msg" style="font-weight: bolder"> |</span>
+                                <a href="{{ route('client.login') }}" class="kt-link kt-font-danger">
+                                            العميل
                                   </a>
                             @endif
 

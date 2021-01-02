@@ -99,5 +99,7 @@ return [
   'orders' => 'orders',  
   'All orders inside the city' => 'All orders inside the city',  
   'show More' => 'show More',  
-  'likes' => 'likes',
+  'likes' => 'likes',  
+  'Add Payment' => 'Add Payment',  
+  'Add' => 'Add',
 ];

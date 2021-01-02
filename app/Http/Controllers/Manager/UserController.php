@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Models\Accountant;
+use App\Models\Bill;
+use App\Models\CDs;
 use App\Models\User;
 use App\Rules\EmailRule;
 use Carbon\Carbon;
@@ -43,6 +45,19 @@ class UserController extends Controller
                 })
                 ->addColumn('status_name', function ($item) {
                     return draftName($item->draft);
+                })
+                ->addColumn('total', function ($item) {
+                    $total_cds = CDs::where('user_id', $item->id)->get()->map(function ($user) {
+                        return [
+                            'amount' => abs($user->paid_amount - $user->amount)
+                        ];
+                    })->sum('amount');
+                    $total_bills = Bill::where('user_id', $item->id)->get()->map(function ($bill) {
+                        return [
+                            'amount' => abs($bill->paid_amount - $bill->total_cost)
+                        ];
+                    })->sum('amount');
+                    return $total_cds + $total_bills;
                 })
                 ->addColumn('actions', function ($category) {
                     return $category->action_buttons;

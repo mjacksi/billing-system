@@ -60,7 +60,11 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'manager' => \App\Http\Middleware\RedirectIfNotManager::class,
+        'accountant' => \App\Http\Middleware\RedirectIfNotAccountant::class,
+        'client' => \App\Http\Middleware\RedirectIfNotClient::class,
         'manager.guest' => \App\Http\Middleware\RedirectIfManager::class,
+        'accountant.guest' => \App\Http\Middleware\RedirectIfAccountant::class,
+        'client.guest' => \App\Http\Middleware\RedirectIfClient::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -72,8 +76,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'localWeb' => SetLocalLanguageWeb::class,
-        'branch' => BranchMiddleware::class,
-        'restaurant' => RestaurantMiddleware::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'localization' => \App\Http\Middleware\localization::class,

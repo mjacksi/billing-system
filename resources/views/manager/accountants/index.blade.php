@@ -37,14 +37,14 @@
                                 <label>{{ t('Title') }}:</label>
                                 <input type="text" name="title" id="title" class="form-control kt-input" placeholder="{{t('Title')}}">
                             </div>
-                            <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
-                                <label>{{ t('Status') }}:</label>
-                                <select class="form-control" name="draft" id="draft">
-                                    <option selected value="">{{t('Select Status')}}</option>
-                                    <option value="{{YES}}" >{{t('Draft')}}</option>
-                                    <option value="{{NO}}" >{{t('Not Draft')}}</option>
-                                </select>
-                            </div>
+{{--                            <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">--}}
+{{--                                <label>{{ t('Status') }}:</label>--}}
+{{--                                <select class="form-control" name="draft" id="draft">--}}
+{{--                                    <option selected value="">{{t('Select Status')}}</option>--}}
+{{--                                    <option value="{{YES}}" >{{t('Draft')}}</option>--}}
+{{--                                    <option value="{{NO}}" >{{t('Not Draft')}}</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                             <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
                                 <label>{{ t('Action') }}:</label>
@@ -60,7 +60,7 @@
                     <table class="table text-center" id="users-table">
                         <thead>
                         <th>{{t('Name')}}</th>
-                        <th>{{t('Status')}}</th>
+                        <th>{{t('money at accountant')}}</th>
                         <th>{{t('Actions')}}</th>
                         </thead>
                     </table>
@@ -93,9 +93,17 @@
     </div>
 @endsection
 @section('script')
+
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="{{ asset('assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
     <!-- Bootstrap JavaScript -->
     <script>
         $(document).ready(function(){
@@ -111,6 +119,10 @@
                     serverSide: true,
                     ordering:false,
                     searching: false,
+                    dom: 'lBfrtip',
+                    buttons: [
+                        'excel', 'print'
+                    ],
                     @if(app()->getLocale() == 'ar')
                     language: {
                         url: "http://cdn.datatables.net/plug-ins/1.10.21/i18n/Arabic.json"
@@ -125,7 +137,7 @@
                     },
                     columns: [
                         {data: 'name', name: 'name'},
-                        {data: 'status_name', name: 'status_name'},
+                        {data: 'recipients', name: 'recipients'},
                         {data: 'actions', name: 'actions'}
                     ],
                 });

@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
          $this->call(ClientTableSeeder::class);
          $this->call(ItemTableSeeder::class);
          $this->call(PermissionTableSeeder::class);
+         $this->call(CdsSeeder::class);
 
 
 

@@ -14,7 +14,8 @@ class CreateCreditorDebtorTable extends Migration
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('manager_id')->nullable();
-            $table->boolean('isManager');//هل  الدفعة لصاحب الموقع ام لا
+            $table->integer('type')->default(\App\Models\CDs::CREDITOR);//دائن ام مدين
+            $table->string('uuid')->nullable();
 
             $table->double('amount')->default(0);// المبلغ المعطى
             $table->boolean('status')->default(0);// الحالة مدفوعة ام لا

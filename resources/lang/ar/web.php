@@ -99,6 +99,8 @@ return [
   'Per Month' => 'في الشهر',
   'orders' => '#طلبات',
   'All orders inside the city' => 'جميع التوصيلات بداخل المدينة',
-  'show More' => 'رؤية المزيد',  
+  'show More' => 'رؤية المزيد',
   'likes' => 'likes',
+  'Add Payment' => 'اضافة دفعة جديدة',
+  'Add' => 'اضافة',
 ];

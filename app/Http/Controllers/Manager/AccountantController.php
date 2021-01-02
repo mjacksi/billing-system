@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Models\Accountant;
+use App\Models\Recipients;
 use App\Rules\EmailRule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -42,6 +43,9 @@ class AccountantController extends Controller
                 })
                 ->addColumn('status_name', function ($item) {
                     return draftName($item->draft);
+                })
+                ->addColumn('recipients', function ($item) {
+                    return $item->total_recipients;
                 })
                 ->addColumn('actions', function ($category) {
                     return $category->action_buttons;
