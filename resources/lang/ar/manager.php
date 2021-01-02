@@ -699,6 +699,7 @@ return [
   'Cds Status' => 'حالة ديوني عند الناس',
   'paid_amount' => 'القيمة المدفوعة',
   'Select Client' => 'حدد العميل',
+  'Amount recived' => ' المبلغ المسلتم',
   'Select Accountent' => 'حدد المحاسب',
   'Show cds' => 'أطهر ديوني عند الناس',
   'Edit cds' => 'تعديل ديوني عند الناس',

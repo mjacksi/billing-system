@@ -60,7 +60,7 @@
 
 
                                 <div class="form-group row">
-                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ t('Cost') }}</label>
+                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ t('Amount recived') }}</label>
                                     <div class="col-lg-9 col-xl-6">
                                         <input name="cost" type="number" step="1" class="form-control"
                                                value="{{isset($cds)?$cds->amount : ''}}">
