@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </form>
-                    <table class="table text-center" id="Expenses-table">
+                    <table class="table text-center table-responsive" id="Expenses-table">
                         <thead>
                         <th>{{t('Title')}}</th>
                         <th>{{t('Cost')}}</th>

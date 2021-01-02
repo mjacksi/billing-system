@@ -257,7 +257,7 @@
                     "<label>{{ t('Quantity') }}</label>" +
                     "<input name=\"options[" + x + "][quantity]\"\n" +
                     "                   type=\"number\" step=\"1.0\" class=\"form-control\"\n" +
-                    "                   value=\"\">\n" +
+                    "                   value=\"1\">\n" +
                     "</div>" +
                     "</div>" +
                     "<div class=\"col-md-1\">\n" +

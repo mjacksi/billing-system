@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body">
-                    <table class="table text-center" id="users-table">
+                    <table class="table text-center table-responsive" id="users-table">
                         <thead>
                         <th>{{ t('manager') }}</th>
                         <th>{{ t('email') }}</th>

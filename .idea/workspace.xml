@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b44f9d90-bec0-4f3b-801b-556d1eb6cf6b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/layout/container.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/layout/container.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resources/views/client/layout/container.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/client/layout/container.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/bills/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/bills/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/bills/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/bills/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/cds/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/cds/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/expenses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/expenses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/items/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/items/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/payments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/payments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/accountant/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/accountant/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/accountants/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/accountants/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/bills/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/bills/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/expenses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/expenses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/items/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/items/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/manager/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/manager/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/payments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/payments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/recipients/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/recipients/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/manager/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/manager/users/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +256,7 @@
       <workItem from="1609398247195" duration="800000" />
       <workItem from="1609562553746" duration="6971000" />
       <workItem from="1609576515534" duration="4652000" />
-      <workItem from="1609609413226" duration="972000" />
+      <workItem from="1609609413226" duration="1262000" />
     </task>
     <servers />
   </component>

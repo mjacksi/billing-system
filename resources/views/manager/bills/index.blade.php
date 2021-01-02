@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </form>
-                    <table class="table text-center" id="Bills-table">
+                    <table class="table text-center table-responsive" id="Bills-table">
                         <thead>
                         <th>{{t('Expire Date')}}</th>
                         <th>{{t('uuid')}}</th>

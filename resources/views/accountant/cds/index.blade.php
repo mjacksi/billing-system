@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </form>
-                    <table class="table text-center" id="users-table">
+                    <table class="table text-center table-responsive" id="users-table">
                         <thead>
                         <th>{{t('uuid')}}</th>
                         <th>{{t('User')}}</th>
