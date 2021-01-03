@@ -207,7 +207,7 @@
         var x = 1; //Initial field counter is 1
         var y = 1; //Initial field counter is 1
 
-        var maxField = 5; //Input fields increment limitation
+        var maxField = 50; //Input fields increment limitation
         var addButton = $('.add_button'); //Add button selector
         var wrapper = $('.row_container'); //Input field wrapper
         //Once add button is clicked
