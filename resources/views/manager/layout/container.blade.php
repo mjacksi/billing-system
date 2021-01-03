@@ -156,7 +156,7 @@
                             <li class="kt-menu__item  @if(Request::is('manager/recipients*') ) kt-menu__item--active @endif"
                                 aria-haspopup="true">
                                 <a href="{{route('manager.recipients.index')}}" class="kt-menu__link ">
-                                    <i class="kt-menu__link-icon flaticon2-group"></i>
+                                    <i class="kt-menu__link-icon fa fa-money"></i>
                                     <span class="kt-menu__link-text">{{ t('Recipients') }}</span>
                                 </a>
                             </li>
