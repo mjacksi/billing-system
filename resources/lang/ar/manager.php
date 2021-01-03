@@ -700,6 +700,8 @@ return [
   'paid_amount' => 'القيمة المدفوعة',
   'Select Client' => 'حدد العميل',
   'Amount recived' => ' المبلغ المسلتم',
+  'No Items' => 'لا يوجد بيانات',
+  'Uuid' => 'رقم الطلب',
   'Select Accountent' => 'حدد المحاسب',
   'Show cds' => 'أطهر ديوني عند الناس',
   'Edit cds' => 'تعديل ديوني عند الناس',

@@ -39,7 +39,7 @@
                                     <label class="col-xl-3 col-lg-3 col-form-label">{{ t('Name') }} </label>
                                     <div class="col-lg-9 col-xl-6">
                                         <select name="accountant" class="form-control">
-                                            <option value=''>{{t('Select Client')}}</option>
+                                            <option value=''>{{t('Select Accountent')}}</option>
                                             @foreach($accountants as $key2=>$item2)
                                                 <option value="{{$item2->id}}"{{isset($recipients) &&$item2->id == $recipients->accountant_id? 'selected' : ''}}>  {{$item2->name}}</option>
                                             @endforeach
