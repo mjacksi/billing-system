@@ -68,6 +68,18 @@
     @if(isset($logo))
         <link rel="shortcut icon" href="{{ asset($logo) }}"/>
     @endif
+
+    <style>
+
+
+        @media only screen and (min-width: 600px) {
+            .table-responsive{
+                display: inline-table;
+            }
+
+        }
+    </style>
+
 </head>
 
 <!-- end::Head -->
